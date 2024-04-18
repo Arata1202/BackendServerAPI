@@ -1,4 +1,7 @@
 <?php
+
+//recaptchaのバックエンドチェック
+
 require './config/env.php';
 
 if (isset($_SERVER['HTTP_ORIGIN'])) {
