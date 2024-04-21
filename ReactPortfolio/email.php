@@ -26,7 +26,7 @@ if (!empty($postData)) {
     $headers = "MIME-Version: 1.0" . "\r\n";
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
     $fromName = $email_from;
-    $headers .= 'From: ' . "=?UTF-8?B?".base64_encode($fromName)."?= <noreply@yourdomain.com>" . "\r\n";
+    $headers .= 'From: ' . "=?UTF-8?B?".base64_encode($fromName)."?= <$email_from>" . "\r\n";
 
     $message = "<p>以下の内容でお問い合わせを承りました。</p>";
     $message .= "<p>数日以内にご連絡いたしますので、しばらくお待ちください。</p>";

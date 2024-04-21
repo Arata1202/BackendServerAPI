@@ -16,17 +16,13 @@ try {
     $conn = new PDO($dsn, $user, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $conn->exec("SET CHARACTER SET utf8");
-
-    $sql = "UPDATE visitors SET count = count + 0.5";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute();
-
+    
     $sql = "SELECT count FROM visitors";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $count = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    echo json_encode(["message" => "訪問者数が正常に更新されました", "count" => $count["count"]]);
+    echo json_encode(["message" => "カウントを取得しました。", "count" => $count["count"]]);
 } catch (PDOException $e) {
     echo json_encode(["error" => "Connection failed: " . $e->getMessage()]);
 } finally {
